@@ -8,21 +8,26 @@ VMs.
 Keep in mind that all `vagrant` commands need to be run from the root of this
 repository, i.e. the directory that this README is in.
 
-`vagrant up` to start the VMs.
+* `vagrant up` to start the VMs.
 
-`vagrant halt` to shut down the VMs.
+* `vagrant halt` to shut down the VMs.
 
 Sometimes, you will get the message "Machine already provisioned", in which case
 you should run `vagrant provision` to ensure the correct setup of the VMs.
+
+### Only starting `kali1`
+
+As `kali1` is the main VM, you might only want to create and/or boot that one
+VM, in which case you run `vagrant up kali1`.
 
 ### Logging in to the VMs
 
 Default credentials are `vagrant`/`vagrant` - the username is `vagrant` and the
 password is `vagrant`. This is how you log in using the GUI.
 
-You can also access the VMs using SSH: `vagrant ssh <vm name` (e.g. `vagrant ssh
-kali2`). With this method, Vagrant will use a key pair for authentication - so
-you will not need to input any password.
+You can also access the VMs using SSH: `vagrant ssh <vm name>` (e.g. `vagrant
+ssh kali2`). With this method, Vagrant will use a key pair for authentication -
+so you will not need to input any password.
 
 ## Configuration
 
