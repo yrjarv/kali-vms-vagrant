@@ -5,20 +5,36 @@ VMs.
 
 ## Getting started
 
-Keep in mind that all `vagrant` commands need to be run from the root of this
-repository, i.e. the directory that this README is in.
+(Keep in mind that all `vagrant` commands need to be run from the root of this
+repository, i.e. the directory that this README is in)
 
-* `vagrant up` to start the VMs.
+First of all, you need to install the `vagrant` plugin `vagrant-hostmanager`:
 
-* `vagrant halt` to shut down the VMs.
+```shell
+vagrant plugin install vagrant-hostmanager
+```
 
-Sometimes, you will get the message "Machine already provisioned", in which case
-you should run `vagrant provision` to ensure the correct setup of the VMs.
+### Creating and starting VMs
 
-### Only starting `kali1`
+```shell
+vagrant up          # If you want to create and start all 3 VMs
+vagrant up kali1    # If you only want to create and start the first VM
+```
 
-As `kali1` is the main VM, you might only want to create and/or boot that one
-VM, in which case you run `vagrant up kali1`.
+`vagrant up` will first create the requested VM/VMs, and then start them. If the
+VMs have already been created, and there have not been any changes to
+`Vagrantfile`, it will simply start the VM/VMs.
+
+### Shut down all running VMs
+
+```shell
+vagrant halt
+```
+
+### Provisioning
+
+If there has been made any changes to the provisioning part of the Vagrantfile,
+you need to run `vagrant up --provision` instead of `vagrant up`.
 
 ### Logging in to the VMs
 

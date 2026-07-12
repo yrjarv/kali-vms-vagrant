@@ -4,6 +4,21 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "kalilinux/rolling"
 
+  %w[vagrant-hostmanager].each do |plugin|
+    unless Vagrant.has_plugin?(plugin)
+      raise <<~MSG
+        Missing required Vagrant plugin: #{plugin}
+        Install it with:
+          vagrant plugin install #{plugin}
+      MSG
+    end
+  end
+
+  # Hostmanager, for automatic /etc/hosts
+  config.hostmanager.enabled = true
+  config.hostmanager.manage_guest = true
+  config.hostmanager.ignore_private_ip = false
+
   # Custom configuration
   load "config.rb" if File.exist?("config.rb")
 
@@ -33,9 +48,9 @@ Vagrant.configure("2") do |config|
 
       # Provisioning, apt updating and installation of gdb-peda
       kali.vm.provision "shell", inline: <<-SHELL
-        sudo apt update
-        sudo apt -y upgrade
-        sudo apt install -y gdb-peda
+        apt update
+        apt -y upgrade
+        apt install -y gdb-peda
         echo "source /usr/share/gdb-peda/peda.py" > /home/vagrant/.gdbinit
         chown vagrant:vagrant /home/vagrant/.gdbinit
       SHELL
