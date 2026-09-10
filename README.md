@@ -8,7 +8,7 @@ VMs.
 * Oracle Virtualbox [here](https://www.virtualbox.org/wiki/Downloads)
 * Vagrant [here](https://developer.hashicorp.com/vagrant/install)
 
-## Getting started
+## Usage
 
 (Keep in mind that all `vagrant` commands need to be run from the root of this
 repository, i.e. the directory that this README is in)
@@ -46,6 +46,11 @@ vagrant suspend
 
 Default credentials are `vagrant`/`vagrant` - the username is `vagrant` and the
 password is `vagrant`. This is how you log in using the GUI.
+
+### Transferring files
+
+Any files you put in this repository's directory, will show up in the VM's
+`/vagrant` directory. And vice versa.
 
 ## Configuration
 
