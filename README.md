@@ -31,6 +31,12 @@ VMs have already been created, and there have not been any changes to
 vagrant halt
 ```
 
+If you want to save the state of the VMs:
+
+```shell
+vagrant suspend
+```
+
 ### Provisioning
 
 If there has been made any changes to the provisioning part of the Vagrantfile,
@@ -62,6 +68,12 @@ OS.
 
 The default value is `8192`, i.e. 8GB.
 
+### `KALI1_CPU_CORES`
+
+This determines how many CPU cores the `kali1` VM has available. In total, you
+should at least keep 2 cores "to yourself". `kali2` and `kali3` have 2 cores, so
+you should reserve max `(system_cores)-6` cores to `kali1`.
+
 ## The VMs
 
 ### `kali1`
@@ -70,13 +82,12 @@ IP: `192.168.56.11`
 
 This is the main VM, which by default has 8GB of RAM allocated.
 
-When booting up, this VM shows its GUI - so this is the one you should use for
-most daily use.
+This is the one you should use for most daily use.
 
 ### `kali2` and `kali3`
 
 IPs: `192.168.56.12` and `192.168.56.13`
 
 These are auxiliary VMs primarily used for testing network hacking and attacks
-on other machines from `kali1`, without needing to 
-
+on other machines from `kali1`. This means they don't have as much resources
+available.

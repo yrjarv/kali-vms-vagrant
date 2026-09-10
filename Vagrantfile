@@ -29,16 +29,17 @@ Vagrant.configure("2") do |config|
 
       kali.vm.provider "virtualbox" do |vb|
         if i == 1
-          # kali1 should start with GUI open, and also have more RAM to compensate
-          # for that
-          vb.gui = true
+          # kali1 is sometimes the only VM running, and will to more demanding
+          # computations, so we need more RAM to compensate for that
           vb.memory = defined?(KALI1_RAM_MB) ? KALI1_RAM_MB : 8192
+          vb.cpus = defined?(KALI1_CPU_CORES) ? KALI1_CPU_CORES : 2
         else
-          # kali2 and kali3 shouldn't be started with GUI or run any heavy
-          # computation (hashcracking, mapping, hydra, etc), so no need for more
-          # RAM
+          # kali2 and kali3 shouldn't run any heavy computation (hashcracking,
+          # mapping, hydra, etc), so no need for more RAM
           vb.memory = "1024"
+          vb.cpus = 2
         end
+        vb.gui = true # `vagrant ssh` doesn't work when you disable NAT
       end
 
       # For faster provisioning (shared apt cache)
