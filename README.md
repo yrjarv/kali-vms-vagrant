@@ -3,6 +3,11 @@
 This is a way to easily set up a simple CTF/security lab environment with 3 Kali
 VMs.
 
+## Prerequisites
+
+* Oracle Virtualbox [here](https://www.virtualbox.org/wiki/Downloads)
+* Vagrant [here](https://developer.hashicorp.com/vagrant/install)
+
 ## Getting started
 
 (Keep in mind that all `vagrant` commands need to be run from the root of this
