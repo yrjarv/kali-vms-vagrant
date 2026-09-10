@@ -47,10 +47,6 @@ vagrant suspend
 Default credentials are `vagrant`/`vagrant` - the username is `vagrant` and the
 password is `vagrant`. This is how you log in using the GUI.
 
-You can also access the VMs using SSH: `vagrant ssh <vm name>` (e.g. `vagrant
-ssh kali2`). With this method, Vagrant will use a key pair for authentication -
-so you will not need to input any password.
-
 ## Configuration
 
 `config.rb` is a file which can contain custom configuration. Currently, only
