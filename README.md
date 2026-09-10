@@ -42,11 +42,6 @@ If you want to save the state of the VMs:
 vagrant suspend
 ```
 
-### Provisioning
-
-If there has been made any changes to the provisioning part of the Vagrantfile,
-you need to run `vagrant up --provision` instead of `vagrant up`.
-
 ### Logging in to the VMs
 
 Default credentials are `vagrant`/`vagrant` - the username is `vagrant` and the
