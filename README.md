@@ -87,3 +87,14 @@ IPs: `192.168.56.12` and `192.168.56.13`
 These are auxiliary VMs primarily used for testing network hacking and attacks
 on other machines from `kali1`. This means they don't have as much resources
 available.
+
+## If this doesn't work
+
+### Mac with Apple Silicon (M-series chips)
+
+See `apple_silicon_kali.pdf`, from the teaching assistant in 2025.
+
+### Any other reason
+
+Download the pre-built VM and set it up manually:
+[here](https://www.kali.org/get-kali/#kali-virtual-machines)
