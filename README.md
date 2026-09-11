@@ -75,6 +75,8 @@ This determines how many CPU cores the `kali1` VM has available. In total, you
 should at least keep 2 cores "to yourself". `kali2` and `kali3` have 2 cores, so
 you should reserve max `(system_cores)-6` cores to `kali1`.
 
+The default value is `2`, i.e. 2 cores.
+
 ## The VMs
 
 ### `kali1`
