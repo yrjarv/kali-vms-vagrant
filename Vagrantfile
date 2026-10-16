@@ -50,7 +50,7 @@ Vagrant.configure("2") do |config|
       # Provisioning, apt updating and installation of gdb-peda
       kali.vm.provision "shell", inline: <<-SHELL
         apt update
-        apt install -y gdb-peda
+        apt install -y gdb-peda python3-pwntools
         echo "source /usr/share/gdb-peda/peda.py" > /home/vagrant/.gdbinit
         chown vagrant:vagrant /home/vagrant/.gdbinit
       SHELL
