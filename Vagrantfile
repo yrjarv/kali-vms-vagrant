@@ -57,15 +57,13 @@ Vagrant.configure("2") do |config|
 
   # Metasploitable
   config.vm.define "metasploitable" do |metasploitable|
-    metasploitable.vm.box = "rapid7/metasploitable3-ub1404"
+    metasploitable.vm.box = "Sliim/metasploitable2"
 
-    metasploitable.ssh.username = "vagrant"
-    metasploitable.ssh.password = "vagrant"
-    metasploitable.ssh.insert_key = true
+    metasploitable.ssh.username = "msfadmin"
+    metasploitable.ssh.password = "msfadmin"
 
     metasploitable.vm.synced_folder ".", "/vagrant", disabled: true
 
-    metasploitable.vm.hostname = "metasploitable"
     metasploitable.vm.network "private_network", ip: "192.168.56.21"
 
     metasploitable.vm.provider "virtualbox" do |vb|

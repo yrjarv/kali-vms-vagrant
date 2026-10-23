@@ -99,7 +99,7 @@ available.
 
 IP: `192.168.56.21`
 
-This is a Metasploitable3 Ubuntu VM, used as the target of our attacks during
+This is a Metasploitable2 VM, used as the target of our attacks during
 the metasploit workshop.
 
 ## If this doesn't work
