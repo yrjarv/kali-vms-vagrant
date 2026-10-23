@@ -22,7 +22,7 @@ vagrant plugin install vagrant-hostmanager
 ### Creating and starting VMs
 
 ```shell
-vagrant up          # If you want to create and start all 3 VMs
+vagrant up          # If you want to create and start all 4 VMs
 vagrant up kali1    # If you only want to create and start the first VM
 ```
 
@@ -94,6 +94,13 @@ IPs: `192.168.56.12` and `192.168.56.13`
 These are auxiliary VMs primarily used for testing network hacking and attacks
 on other machines from `kali1`. This means they don't have as much resources
 available.
+
+### `metasploitable`
+
+IP: `192.168.56.21`
+
+This is a Metasploitable3 Ubuntu VM, used as the target of our attacks during
+the metasploit workshop.
 
 ## If this doesn't work
 
