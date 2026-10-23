@@ -2,8 +2,6 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-  config.vm.box = "kalilinux/rolling"
-
   %w[vagrant-hostmanager].each do |plugin|
     unless Vagrant.has_plugin?(plugin)
       raise <<~MSG
@@ -19,11 +17,11 @@ Vagrant.configure("2") do |config|
   config.hostmanager.manage_guest = true
   config.hostmanager.ignore_private_ip = false
 
-  # Custom configuration
+  # Kali
   load "config.rb" if File.exist?("config.rb")
-
   (1..3).each do |i|
     config.vm.define "kali#{i}" do |kali|
+      kali.vm.box = "kalilinux/rolling"
       kali.vm.hostname = "kali#{i}"
       kali.vm.network "private_network", ip: "192.168.56.#{10 + i}"
 
@@ -54,6 +52,26 @@ Vagrant.configure("2") do |config|
         echo "source /usr/share/gdb-peda/peda.py" > /home/vagrant/.gdbinit
         chown vagrant:vagrant /home/vagrant/.gdbinit
       SHELL
+    end
+  end
+
+  # Metasploitable
+  config.vm.define "metasploitable" do |metasploitable|
+    metasploitable.vm.box = "rapid7/metasploitable3-ub1404"
+
+    metasploitable.ssh.username = "vagrant"
+    metasploitable.ssh.password = "vagrant"
+    metasploitable.ssh.insert_key = true
+
+    metasploitable.vm.synced_folder ".", "/vagrant", disabled: true
+
+    metasploitable.vm.hostname = "metasploitable"
+    metasploitable.vm.network "private_network", ip: "192.168.56.21"
+
+    metasploitable.vm.provider "virtualbox" do |vb|
+      vb.memory = "1024"
+      vb.cpus = 2
+      vb.gui = true # `vagrant ssh` doesn't work when you disable NAT
     end
   end
 end
