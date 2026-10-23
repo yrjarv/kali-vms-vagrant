@@ -32,8 +32,3 @@ Look at the sessions: `sessions`
 Connect to the session: `sessions -i 1`
 
 `cat /etc/passwd` shows us we're in.
-
-## SMB
-
-`nmap metasploitable` shows SMB is open.
-
