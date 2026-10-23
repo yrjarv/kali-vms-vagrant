@@ -102,6 +102,9 @@ IP: `192.168.56.21`
 This is a Metasploitable2 VM, used as the target of our attacks during
 the metasploit workshop.
 
+IMPORTANT: The username/password for this is `msfadmin/msfadmin`, instead of the
+normal `vagrant/vagrant`.
+
 ## If this doesn't work
 
 ### Mac with Apple Silicon (M-series chips)
